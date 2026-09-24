@@ -18,13 +18,19 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-const pool = new pg.Pool({
-    user: 'postgres',
-    host: 'localhost',
-    password: '88215',
-    database: 'photo_hunt',
-    port: 5432
-});
+const pool = new pg.Pool(
+    process.env.DATABASE_URL
+        ? {
+            connectionString: process.env.DATABASE_URL
+        }
+        : {
+            user: 'postgres',
+            host: 'localhost',
+            password: '88215',
+            database: 'photo_hunt',
+            port: 5432
+        }
+);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
