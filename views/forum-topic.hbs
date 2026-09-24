@@ -1,0 +1,102 @@
+<div class="page-container">
+
+    <h1>{{topic.name}}</h1>
+
+    <p>
+        Категория: {{topic.category_name}}
+    </p>
+
+    <p>
+        Автор: {{topic.firstname}} {{topic.lastname}}
+    </p>
+
+    <p>
+        Просмотров: {{topic.views}}
+        · Статус: {{topic.status}}
+    </p>
+
+    {{#if topic.photo_image_path}}
+
+        <div class="mb-4">
+            <h2>Фотография</h2>
+
+            <img
+                src="/{{topic.photo_image_path}}"
+                alt="{{topic.photo_name}}"
+                class="img-fluid"
+                style="max-width: 600px;"
+            >
+
+            <p>
+                {{topic.photo_name}}
+            </p>
+        </div>
+
+    {{/if}}
+
+    <hr>
+
+    <h2>Обсуждение</h2>
+
+    {{#each messages}}
+
+        <div class="forum-message">
+
+            <strong>
+                {{firstname}} {{lastname}}
+            </strong>
+
+            <p>
+                {{text}}
+            </p>
+
+            <small>
+                {{created_at}}
+            </small>
+
+        </div>
+
+        <hr>
+
+    {{else}}
+
+        <p>Сообщений пока нет.</p>
+
+    {{/each}}
+
+    {{#if isUser}}
+
+        <h2>Ответить</h2>
+
+        <form action="/forum/topic/{{topic.id}}/reply" method="POST">
+
+            <div class="mb-3">
+                <textarea
+                    class="form-control"
+                    name="text"
+                    rows="5"
+                    placeholder="Введите сообщение"
+                    required
+                ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Отправить
+            </button>
+
+        </form>
+
+    {{else}}
+
+        <p>
+            Чтобы участвовать в обсуждении,
+            <a href="/auth">войдите в аккаунт</a>.
+        </p>
+
+    {{/if}}
+
+    <a href="/forum" class="btn btn-secondary">
+        Вернуться на форум
+    </a>
+
+</div>

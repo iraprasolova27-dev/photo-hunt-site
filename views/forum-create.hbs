@@ -1,0 +1,86 @@
+<div class="page-container">
+
+    <h1>Создать тему</h1>
+
+    <form action="/forum/create" method="POST">
+
+        <div class="mb-3">
+            <label for="name" class="form-label">
+                Название темы
+            </label>
+
+            <input
+                type="text"
+                class="form-control"
+                id="name"
+                name="name"
+                required
+            >
+        </div>
+
+        <div class="mb-3">
+            <label for="category_id" class="form-label">
+                Категория
+            </label>
+
+            <select
+                class="form-select"
+                id="category_id"
+                name="category_id"
+                required
+            >
+                {{#each categories}}
+                    <option value="{{id}}">
+                        {{name}}
+                    </option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="photo_id" class="form-label">
+                Фотография
+            </label>
+
+            <select
+                class="form-select"
+                id="photo_id"
+                name="photo_id"
+            >
+                <option value="">
+                    Без фотографии
+                </option>
+
+                {{#each photos}}
+                    <option value="{{id}}">
+                        {{name}}
+                    </option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="text" class="form-label">
+                Сообщение
+            </label>
+
+            <textarea
+                class="form-control"
+                id="text"
+                name="text"
+                rows="6"
+                required
+            ></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Создать тему
+        </button>
+
+        <a href="/forum" class="btn btn-secondary">
+            Назад
+        </a>
+
+    </form>
+
+</div>

@@ -1,0 +1,53 @@
+<div class="page-container">
+
+    <section class="hero">
+        <h1>СНИМАЙ.
+ВДОХНОВЛЯЙ.
+РАЗВИВАЙСЯ.</h1>
+        <p>
+            Photo Hunt — пространство для тех, кто хочет
+            развивать навыки фотографии, находить вдохновение
+            и общаться с другими любителями фотографии.
+        </p>
+    </section>
+
+    <section class="photos-section">
+        <h2>ИЗБРАННЫЕ РАБОТЫ</h2>
+        <p>Фотография — это способ увидеть больше.</p>
+
+        <div class="photos-grid">
+            {{#each photos}}
+                <div class="photo-card">
+                    <img src="/{{image_path}}" alt="Фотография">
+                </div>
+            {{/each}}
+        </div>
+    </section>
+
+   <section class="academy-section">
+    <h2>АКАДЕМИЯ</h2>
+
+    <div class="lessons-grid">
+        {{#each lessons}}
+            <div class="lesson-card">
+
+                <img src="/{{image_path}}" alt="{{name}}">
+
+                <div class="lesson-content">
+                    <h3>{{name}}</h3>
+
+                    <p>{{description}}</p>
+
+                    <a href="{{link}}" target="_blank" class="lesson-link">
+                        Подробнее →
+                    </a>
+                </div>
+
+            </div>
+        {{else}}
+            <p>Уроков пока нет.</p>
+        {{/each}}
+    </div>
+</section>
+
+</div>

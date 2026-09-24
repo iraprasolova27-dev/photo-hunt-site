@@ -1,0 +1,109 @@
+<div class="cabinet-page">
+
+    <!-- Верхний баннер -->
+    <section class="cabinet-hero">
+        <div class="cabinet-hero-content">
+            <h1>Личный кабинет</h1>
+            <p>Управляй профилем и заявками в одном месте.</p>
+        </div>
+    </section>
+
+    <!-- Профиль и заявки -->
+    <section class="cabinet-top">
+
+        <div class="profile-card-new">
+
+            <div class="profile-main">
+
+                <div class="profile-avatar">
+                    <span></span>
+                </div>
+
+                <div class="profile-info">
+                    <h2>
+                        {{user.lastname}}
+                        {{user.firstname}}
+                        {{user.middlename}}
+                    </h2>
+
+                    <p>📱 {{user.phone}}</p>
+                    <p>✉ {{user.email}}</p>
+                    <p>▣ {{user.dataofbirth}}</p>
+                </div>
+
+            </div>
+
+            <a href="/cabinet/edit" class="profile-edit-button">
+                Редактировать профиль
+            </a>
+
+<a href="/photos/add" class="profile-edit-button">
+    Добавить фотографию
+</a>
+
+        </div>
+
+        <div class="requests-count-card">
+            <div class="requests-title">МОИ ЗАЯВКИ</div>
+
+            <div class="requests-number">
+                {{requests.length}}
+            </div>
+
+            <div class="requests-description">
+                Заявки на<br>
+                публикацию<br>
+                фотографий
+            </div>
+        </div>
+
+    </section>
+
+    <!-- История заявок -->
+    <section class="cabinet-history">
+
+        <div class="history-label">
+            МОИ ЗАЯВКИ
+        </div>
+
+        <h2>История</h2>
+
+        {{#if requests}}
+
+            {{#each requests}}
+
+                <div class="history-item">
+
+                    <div class="history-number">
+                        #{{id}}
+                    </div>
+
+                    <div class="history-info">
+                        <div class="history-name">
+                            {{photo_name}}
+                        </div>
+
+                        <div class="history-date">
+                            {{request_date}}
+                        </div>
+                    </div>
+
+                    <div class="history-status">
+                        {{status_name}}
+                    </div>
+
+                </div>
+
+            {{/each}}
+
+        {{else}}
+
+            <p class="no-requests">
+                У вас пока нет заявок.
+            </p>
+
+        {{/if}}
+
+    </section>
+
+</div>

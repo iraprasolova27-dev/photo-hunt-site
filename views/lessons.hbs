@@ -1,0 +1,41 @@
+<div class="page-container">
+
+    <h1>Академия</h1>
+
+    <p>
+        Обучающие материалы для тех, кто хочет развиваться в фотографии.
+    </p>
+
+    <div class="lessons-list">
+
+        {{#each lessons}}
+
+            <div class="lesson-card">
+
+                <h2>{{name}}</h2>
+
+                <p>
+                    {{description}}
+                </p>
+
+                <a
+                    href="{{link}}"
+                    target="_blank"
+                    class="btn btn-primary"
+                >
+                    Подробнее →
+                </a>
+
+            </div>
+
+        {{else}}
+
+            <p>
+                Уроков пока нет.
+            </p>
+
+        {{/each}}
+
+    </div>
+
+</div>

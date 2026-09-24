@@ -1,0 +1,77 @@
+<div class="page-container">
+    <h1>Добавить фотографию</h1>
+
+    <form action="/photos/add" method="POST" enctype="multipart/form-data">
+
+        <div class="mb-3">
+            <label for="name" class="form-label">Название фотографии</label>
+            <input
+                type="text"
+                class="form-control"
+                id="name"
+                name="name"
+                required
+            >
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Описание</label>
+            <textarea
+                class="form-control"
+                id="description"
+                name="description"
+                rows="4"
+            ></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="category_id" class="form-label">Категория</label>
+            <select
+                class="form-select"
+                id="category_id"
+                name="category_id"
+                required
+            >
+                {{#each categories}}
+                    <option value="{{id}}">{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="payment_method_id" class="form-label">
+                Способ оплаты
+            </label>
+
+            <select
+                class="form-select"
+                id="payment_method_id"
+                name="payment_method_id"
+                required
+            >
+                {{#each paymentMethods}}
+                    <option value="{{id}}">
+                        {{name}}
+                    </option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="photo" class="form-label">Фотография</label>
+            <input
+                type="file"
+                class="form-control"
+                id="photo"
+                name="photo"
+                accept="image/*"
+                required
+            >
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Отправить фотографию
+        </button>
+
+    </form>
+</div>

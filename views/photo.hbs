@@ -1,0 +1,97 @@
+<div class="page-container">
+
+    <h1>{{photo.name}}</h1>
+
+    <div class="photo-detail">
+
+        <img
+            src="/{{photo.image_path}}"
+            alt="{{photo.name}}"
+        >
+
+        <p>
+            {{photo.description}}
+        </p>
+
+        <p>
+            Категория: {{photo.category_name}}
+        </p>
+
+        <p>
+            Автор: {{photo.firstname}} {{photo.lastname}}
+        </p>
+
+    </div>
+
+    <hr>
+
+    <h2>Комментарии</h2>
+
+    {{#each comments}}
+
+        <div class="comment">
+
+            <strong>
+                {{firstname}} {{lastname}}
+            </strong>
+
+            <p>
+                {{text}}
+            </p>
+
+            <small>
+                {{created_at}}
+            </small>
+
+        </div>
+
+        <hr>
+
+    {{else}}
+
+        <p>
+            Комментариев пока нет.
+        </p>
+
+    {{/each}}
+
+    {{#if isUser}}
+
+        <h3>Оставить комментарий</h3>
+
+        <form action="/photo/{{photo.id}}/comment" method="POST">
+
+            <div class="mb-3">
+
+                <textarea
+                    class="form-control"
+                    name="text"
+                    rows="4"
+                    placeholder="Напишите комментарий"
+                    required
+                ></textarea>
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Оставить комментарий
+            </button>
+
+        </form>
+
+    {{else}}
+
+        <p>
+            Чтобы оставить комментарий,
+            <a href="/auth">войдите в аккаунт</a>.
+        </p>
+
+    {{/if}}
+
+    
+
+    <a href="/" class="btn btn-secondary">
+        Вернуться на главную
+    </a>
+
+</div>

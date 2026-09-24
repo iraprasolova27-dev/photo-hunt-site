@@ -1,0 +1,86 @@
+<div class="page-container">
+
+    <h1>Редактирование профиля</h1>
+
+    <form action="/cabinet/edit" method="POST">
+
+        <div class="mb-3">
+            <label for="firstname" class="form-label">Имя</label>
+            <input
+                type="text"
+                class="form-control"
+                id="firstname"
+                name="firstname"
+                value="{{user.firstname}}"
+                required
+            >
+        </div>
+
+        <div class="mb-3">
+            <label for="lastname" class="form-label">Фамилия</label>
+            <input
+                type="text"
+                class="form-control"
+                id="lastname"
+                name="lastname"
+                value="{{user.lastname}}"
+                required
+            >
+        </div>
+
+        <div class="mb-3">
+            <label for="middlename" class="form-label">Отчество</label>
+            <input
+                type="text"
+                class="form-control"
+                id="middlename"
+                name="middlename"
+                value="{{user.middlename}}"
+            >
+        </div>
+
+        <div class="mb-3">
+            <label for="phone" class="form-label">Телефон</label>
+            <input
+                type="text"
+                class="form-control"
+                id="phone"
+                name="phone"
+                value="{{user.phone}}"
+            >
+        </div>
+
+        <div class="mb-3">
+            <label for="dataofbirth" class="form-label">Дата рождения</label>
+            <input
+                type="date"
+                class="form-control"
+                id="dataofbirth"
+                name="dataofbirth"
+                value="{{user.dataofbirth}}"
+            >
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                value="{{user.email}}"
+                required
+            >
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Сохранить изменения
+        </button>
+
+        <a href="/cabinet" class="btn btn-secondary">
+            Назад
+        </a>
+
+    </form>
+
+</div>

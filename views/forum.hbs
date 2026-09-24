@@ -1,0 +1,81 @@
+<div class="page-container">
+
+    <div class="forum-hero">
+        <div class="forum-hero-content">
+            <h1>Форум</h1>
+            <p>Общайтесь, задавайте вопросы и<br>делитесь опытом.</p>
+        </div>
+    </div>
+
+    <div class="forum-heading">
+        <h2>ОБСУЖДЕНИЯ</h2>
+
+        {{#if isUser}}
+            <a href="/forum/create" class="btn btn-primary">+Создать тему</a>
+        {{/if}}
+    </div>
+
+    <div class="forum-categories">
+
+        <div class="forum-category">
+            <img src="/uploads/11.png" alt="Обработка фотографий">
+            <h3>Обработка фотографий</h3>
+        </div>
+
+        <div class="forum-category">
+            <img src="/uploads/12.png" alt="Настройки камеры">
+            <h3>Настройки камеры</h3>
+        </div>
+
+        <div class="forum-category">
+            <img src="/uploads/13.png" alt="Оборудование">
+            <h3>Оборудование</h3>
+        </div>
+
+    </div>
+
+    <div class="forum-list">
+
+        {{#each topics}}
+
+            <div class="forum-topic">
+
+                <h2>
+                    <a href="/forum/topic/{{id}}">
+                        {{name}}
+                    </a>
+                </h2>
+
+                <p>
+                    Категория: {{category_name}}
+                </p>
+
+                <p>
+                    Автор: {{firstname}} {{lastname}}
+                </p>
+
+                <p>
+                    Просмотров: {{views}}
+                    · Статус: {{status}}
+                </p>
+
+                {{#if isAuthor}}
+                    <form action="/forum/topic/{{id}}/delete" method="POST">
+                        <button type="submit" class="delete-topic-button"
+                                onclick="return confirm('Удалить эту тему?');">
+                            Удалить тему
+                        </button>
+                    </form>
+                {{/if}}
+
+            </div>
+
+        {{else}}
+
+            <p>Тем пока нет.</p>
+
+        {{/each}}
+
+    </div>
+
+</div>

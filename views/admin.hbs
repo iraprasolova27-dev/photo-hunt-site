@@ -1,0 +1,41 @@
+<div class="page-container">
+
+    <h1>Заявки на публикацию</h1>
+
+    {{#if requests}}
+
+        <div class="table-responsive">
+            <table class="table">
+
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Фотография</th>
+                        <th>Пользователь</th>
+                        <th>Дата</th>
+                        <th>Статус</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {{#each requests}}
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{photo_name}}</td>
+                            <td>{{user_name}}</td>
+                            <td>{{request_date}}</td>
+                            <td>{{status_name}}</td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+
+            </table>
+        </div>
+
+    {{else}}
+
+        <p>Заявок пока нет.</p>
+
+    {{/if}}
+
+</div>

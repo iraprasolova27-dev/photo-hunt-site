@@ -1,0 +1,48 @@
+<div class="auth-page">
+
+    <div class="auth-box">
+
+        <h1>ВХОД</h1>
+
+        <p class="auth-subtitle">
+            Войдите в свой аккаунт Photo Hunt
+        </p>
+
+        <form action="/auth" method="POST">
+
+            <div class="mb-3">
+                <label for="login" class="form-label">Логин</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="login"
+                    name="login"
+                    required
+                >
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Пароль</label>
+                <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    name="password"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="auth-button">
+                Войти
+            </button>
+
+        </form>
+
+        <p class="auth-register">
+            Нет аккаунта?
+            <a href="/register">Зарегистрироваться</a>
+        </p>
+
+    </div>
+
+</div>
